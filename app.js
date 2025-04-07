@@ -11,14 +11,12 @@ app.use(express.json());
 //Habilitando para dar suporte a dados inseridos a partir de inputs de formulário
 app.use(express.urlencoded({extended:true}));
 
-
 app.use(cors());
 
 /* APLICANDO ROTAS */
 routes.forEach(({method, path, handler})=>{
     app[method](path, handler);
 });
-
 
 app.listen(porta, () => {
     console.log(`Servidor rodando na porta ${porta}`);
